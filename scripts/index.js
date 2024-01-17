@@ -6,34 +6,45 @@ const eduList = [
     }
 ]
 
-eduList.forEach(eduApp => {
-    var cont = document.createElement("a");
-    cont.classList.add("game-link");
+function createGameButton(projectId, iconSrc, title) {
+  // Create anchor element
+  var gameLink = document.createElement("a");
+  gameLink.href = "projects/" + projectId + "/index.html";
+  gameLink.className = "game-link container";
 
-    var div = document.createElement("div");
-    div.classList.add("game-tile");
+  // Create game tile div
+  var gameTile = document.createElement("div");
+  gameTile.className = "game-tile";
 
-    var appimg = document.createElement("img");
-    appimg.src = eduApp.img;
+  // Create image element
+  var gameIcon = document.createElement("img");
+  gameIcon.className = "game-icon";
+  gameIcon.src = iconSrc;
+  gameIcon.setAttribute("loading", "lazy");
 
-    var title = document.createElement("h1");
-    title.innerHTML = eduApp.title;
-    title.classList.add("game-title");
+  // Create h1 element for game title
+  var gameTitle = document.createElement("h1");
+  gameTitle.className = "game-title";
+  gameTitle.textContent = title;
 
-    document.getElementById("flex-container").appendChild(cont);
-    cont.appendChild(div);
-    div.appendChild(appimg);
-    div.appendChild(title);
+  // Append elements
+  gameTile.appendChild(gameIcon);
+  gameTile.appendChild(gameTitle);
+  gameLink.appendChild(gameTile);
+
+  return gameLink;
+}
+
+// Get the game container element
+var gameContainer = document.getElementById("game-container");
+
+// Example usage: Create a game button with project ID 1
+var gameButton = createGameButton(1, "https://main.dd8vt524eqsk2.amplifyapp.com/projects/1/meta/apple-touch-icon.png", "1");
+
+// Append the button to the game container
+gameContainer.appendChild(gameButton);
+var i=0;
+eduList.forEach(element => {
+  createGameButton(i, element.name, element.img);
+  i++;
 });
-
-
-/* html Stuct
-
-    <a href="ok" class="game-link container">
-      <div class="game-tile">
-        <img class="game-icon" src="https://main.dd8vt524eqsk2.amplifyapp.com/projects/1/meta/apple-touch-icon.png" loading="lazy">
-        <h1 class="game-title">1</h1>
-      </div>
-    </a>
-
-*/
