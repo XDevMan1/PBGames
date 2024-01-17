@@ -36,15 +36,11 @@ function createGameButton(projectId, iconSrc, title) {
 }
 
 // Get the game container element
-var gameContainer = document.getElementById("game-container");
+var gameContainer = document.getElementById("flex-container");
 
-// Example usage: Create a game button with project ID 1
-var gameButton = createGameButton(1, "https://main.dd8vt524eqsk2.amplifyapp.com/projects/1/meta/apple-touch-icon.png", "1");
-
-// Append the button to the game container
-gameContainer.appendChild(gameButton);
 var i=0;
 eduList.forEach(element => {
-  createGameButton(i, element.name, element.img);
+  var testie = createGameButton(i, element.name, element.img);
+  testie.appendChild(gameButton);
   i++;
 });
