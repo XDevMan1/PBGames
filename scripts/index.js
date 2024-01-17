@@ -41,6 +41,6 @@ var gameContainer = document.getElementById("flex-container");
 var i=0;
 eduList.forEach(element => {
   var testie = createGameButton(i, element.name, element.img);
-  testie.appendChild(gameButton);
+  gameContainer.appendChild(testie);
   i++;
 });
