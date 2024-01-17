@@ -8,7 +8,7 @@ const eduList = [
 
 eduList.forEach(eduApp => {
     var cont = document.createElement("a");
-    cont.classList.add("game-link container");
+    cont.classList.add("game-link");
 
     var div = document.createElement("div");
     div.classList.add("game-tile");
