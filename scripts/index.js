@@ -28,12 +28,12 @@ form.addEventListener("submit", async (event) => {
   try {
     await registerSW();
   } catch (err) {
-    document.getElementById('frame').contentWindow.document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
+    document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
     throw err;
   }
 
   const url = search(address.value, searchEngine.value);
-  document.getElementById("frame").src = __uv$config.prefix + __uv$config.encodeUrl(url);
+  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
 });
 
 var bookMarkJson = [];
@@ -94,12 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
           await registerSW();
         } catch (err) {
-          document.getElementById('frame').contentWindow.document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
+          document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
           throw err;
         }
 
         const url = search(bookButton.id, searchEngine.value);
-        document.getElementById("frame").src = __uv$config.prefix + __uv$config.encodeUrl(url);
+        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
       });
       bookButton.appendChild(faviconImg);
       bookmarkContainer.appendChild(bookButton);
@@ -130,12 +130,12 @@ document.getElementById("add-mark").addEventListener("click", function () {
     try {
       await registerSW();
     } catch (err) {
-      document.getElementById('frame').contentWindow.document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
+      document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
       throw err;
     }
 
     const url = search(bookButton.id, searchEngine.value);
-    document.getElementById("frame").src = __uv$config.prefix + __uv$config.encodeUrl(url);
+    location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
   });
   bookmarkContainer.appendChild(bookButton);
   bookMarkJson.push(convertedJson);
@@ -171,7 +171,7 @@ document.getElementById("game").addEventListener("click", async function (event)
   try {
     await registerSW();
   } catch (err) {
-    document.getElementById('frame').contentWindow.document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
+    document.write("<h1 style=\"background-color: white;\">Failed to register Service worker | " + err.toString() + " | <button onclick='location.reload()'>Return</button></h1>");
     throw err;
   }
 
